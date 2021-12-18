@@ -243,10 +243,12 @@ body {
   height: 100%;
   z-index: 1;
   background-color: rgba(0, 0, 0, 0.2);
+  transition: visibility 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .backdrop.is-hidden {
   opacity: 0;
-  visibility: none;
+  visibility: hidden;
   pointer-events: none;
 }
 .modal {
@@ -258,6 +260,7 @@ body {
   min-height: 581px;
   padding: 8px;
   background-color: #ffffff;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .modal-button {
   cursor: pointer;
@@ -694,7 +697,7 @@ body {
   background-color: var(--accent-bg-color);
 }
 
-/* Кнопки button */
+/*//////////////////// Кнопки button ////////////////////////*/
 .button {
   display: block;
   margin: auto;
@@ -752,8 +755,9 @@ body {
   text-align: center;
   color: var(--secondary-text-color);
   background-color: var(--button-secondary-bcg-color);
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .button-menu:focus,
 .button-menu:hover {
@@ -762,7 +766,6 @@ body {
   color: #ffffff;
   background-color: var(--button-primery-bcg-color);
   cursor: pointer;
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /*---------content---------  */
@@ -786,10 +789,10 @@ body {
   position: relative;
   margin: -15px;
 }
-/* --------------------------решить с выпадающим фоном----------------------------- */
 
 .main {
   position: relative;
+  display: block;
 }
 .main-thumb {
   position: relative;
@@ -812,15 +815,15 @@ body {
   transform: translateY(100%);
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-.content-link:hover .main-thumb-text {
+.content-link:hover .main-thumb-text,
+.content-link:focus .main-thumb-text {
   transform: translateY(0);
 }
 
-.main:hover,
-.main:focus {
+.content-link:hover,
+.content-link:focus {
   box-shadow: 1px 4px 6px 0 #00000016, 0 4px 4px 0 #00000006,
     0 1px 1px 0 #00000012;
-  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .main-box .item {
@@ -838,6 +841,8 @@ body {
 }
 .content-link {
   text-decoration: none;
+  display: block;
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .text-subject {
   margin-bottom: 4px;
